@@ -3,8 +3,8 @@ com/eodessa/account/service/AccountServiceImpl.class
 com/eodessa/account/AccountApplication.class
 com/eodessa/account/domain/User.class
 com/eodessa/account/service/security/CustomUserInfoTokenServices.class
-com/eodessa/account/client/AuthServiceClient.class
 com/eodessa/account/repository/AccountRepository.class
+com/eodessa/account/client/AuthServiceClient.class
 com/eodessa/account/client/NotificationServiceClient.class
 com/eodessa/account/service/AccountService.class
 com/eodessa/account/domain/Account.class

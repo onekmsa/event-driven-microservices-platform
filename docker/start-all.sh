@@ -11,6 +11,18 @@ awk '{print $1}' | xargs docker stop
 echo -n "Build new images? y/n"
 read build_images
 if [ "$build_images" == "y" ]; then
+	echo "Generating ngnix image..."
+	cd ./../nginx/
+	sh ./build_image.sh
+
+	echo "Generating mongodb image..."
+	cd ./../mongodb/
+	sh ./build_image.sh
+
+	echo "Generating fluentd image..."
+	cd ./../fluentd/
+	sh ./build_image.sh
+
     echo "Generating auth-server image..."
 	cd ./../auth-server/
 	sh ./build_image.sh
@@ -26,13 +38,21 @@ if [ "$build_images" == "y" ]; then
 	echo "Generating eureka-server image..."
 	cd ./../eureka-server/
 	sh ./build_image.sh
-	
-	echo "Generating statistics-server image..."
-	cd ./../statistics-server/
+
+	echo "Generating gateway image..."
+	cd ./../gateway/
+	sh ./build_image.sh
+
+	echo "Generating elasticsearch image..."
+	cd ./../elasticsearch/
 	sh ./build_image.sh
 	
 	echo "Generating monitoring image..."
 	cd ./../monitoring/
+	sh ./build_image.sh
+
+	echo "Generating kibana image..."
+	cd ./../kibana/
 	sh ./build_image.sh
 	
 	echo "Generating account image..."
@@ -46,6 +66,12 @@ if [ "$build_images" == "y" ]; then
 	echo "Generating store image..."
 	cd ./../store-service/
 	sh ./build_image.sh
+
+	echo "Generating appointment-service image..."
+	cd ./../appointment-service/
+	sh ./build_image.sh
+
+	
 fi
 
 #echo "Starting your local dockerized full stack with mounted volumes"
